@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flaskr</title>
+</head>
+<body>
+<div>
+	{% if not session.logged_in %}
+		<a href="{{ url_for('login') }}">login in </a>
+	{% else %}
+		<a href="{{ url_for('logout') }}">logout</a>
+	{% endif %}
+</div>
+{% for message in get_flashed_messages() %}
+	<div>{{message}}</div>
+{% endfor %}
+{% block body %}{% endblock %}
+</div>
+</body>
+</html>
